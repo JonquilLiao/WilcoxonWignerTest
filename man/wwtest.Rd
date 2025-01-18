@@ -4,26 +4,27 @@
 \alias{wwtest}
 \title{Wilcoxon--Wigner homogeneity Test}
 \usage{
-wwtest(data_matrix)
+wwtest(data_matrix, method = "eigenvalue")
 }
 \arguments{
-\item{data_matrix}{A numeric symmetric matrix with nrow > 2.}
+\item{data_matrix}{A numeric symmetric matrix with \code{nrow > 2}.}
+
+\item{method}{A character string, either \code{"eigenvalue"} or \code{"eigenvector"}, indicating which test to use.}
 }
 \value{
-An object of class "htest" containing the test statistic, leading eigenvalue of the transformed matrix, matrix size, and p-value.
+An object of class \code{"htest"} containing the test statistic, leading eigenvalue of the transformed matrix, matrix size, and p-value.
 \item{data.name}{The name of the input data matrix.}
 \item{statistic}{The test statistic.}
 \item{parameter}{The size of the matrix (number of rows/columns).}
 \item{p.value}{The p-value associated with the test statistic.}
-\item{method}{The name of the test, "Wilcoxon--Wigner Test using Rank Transformation".}
+\item{method}{The name of the test. Specify which alternative (eigenvalue test or eigenvector test) is used.}
 \item{alternative}{The alternative hypothesis: "The entries in the matrix do not come from the same distribution".}
-\item{estimate}{The largest eigenvalue of the transformed matrix.}
 }
 \description{
 This function tests whether the independent entries in a symmetric matrix are identically distributed.
 It first transforms the entry values to the corresponding normalized ranks,
-then computes the first eigenvalue of the transformed matrix. The test statistic is constructed based on
-the eigenvalue and compared to the standard normal distribution. The function then returns test result
+then computes the first eigenvalue or eigenvector of the transformed matrix. The test statistic is constructed based on
+the eigenvalue or eigenvector and compared to the standard normal distribution. The function then returns test result
 including the test statistic, alternative hypothesis and p-value.
 }
 \examples{
