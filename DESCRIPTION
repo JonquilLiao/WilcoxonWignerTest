@@ -1,7 +1,7 @@
 Package: WilcoxonWignerTest
 Type: Package
 Title: Wilcoxon--Wigner Homogeneity Test for Symmetric Random Data Matrices
-Version: 0.1.0
+Version: 1.0.1
 Author: Jonquil Z. Liao <zliao42@wisc.edu> 
 Maintainer: Jonquil Z. Liao <zliao42@wisc.edu> 
 Description: Provides statistical tests to check whether all entries in a data matrix come from the same distribution.

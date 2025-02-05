@@ -39,7 +39,7 @@ wwtest <- function(data_matrix, method = 'eigenvalue') {
 
   # 2. Transform the upper triangular entries to ranks
   upper_tri_values <- data_matrix[upper.tri(data_matrix, diag = FALSE)]
-  ranked_values <- rank(upper_tri_values)
+  ranked_values <- rank(upper_tri_values, ties.method = 'random')
   transformed_matrix <- matrix(0, nrow = n, ncol = n)
   transformed_matrix[upper.tri(data_matrix, diag = FALSE)] <- ranked_values/(N+1)
   transformed_matrix = transformed_matrix + t(transformed_matrix)
@@ -59,7 +59,7 @@ wwtest <- function(data_matrix, method = 'eigenvalue') {
   if (method == 'eigenvalue'){
     test_statistic <- (first_eigenvalue - mu1)/(sqrt(tilde_sigma2))
   } else {
-    test_statistic <- n*(sum(first_eigenvector)/sqrt(n) - 1 + 1/(6*n))/(sqrt(tilde_sigma2))
+    test_statistic <- n*(abs(sum(first_eigenvector)/sqrt(n)) - 1 + 1/(6*n))/(sqrt(tilde_sigma2))
   }
 
   if (method == 'eigenvalue'){
